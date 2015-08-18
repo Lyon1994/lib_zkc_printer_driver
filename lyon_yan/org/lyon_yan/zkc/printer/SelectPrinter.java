@@ -36,11 +36,6 @@ public class SelectPrinter {
 		if (getSelectedPrinter(activity).equals("")) {
 			initPrintActivity(activity);
 		}
-		if (PrintActivity.pl.getState() != PrinterClass.STATE_CONNECTED) {
-			Toast.makeText(activity, "打印机连接失败！", Toast.LENGTH_SHORT).show();
-		} else {
-			Toast.makeText(activity, "打印机已连接", Toast.LENGTH_SHORT).show();
-		}
 	}
 
 	private void initMainActivity(final Activity activity) {
