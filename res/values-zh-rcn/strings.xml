@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-     <string name="app_name">打印机Demo</string>
     <string name="str_checkdevice">检查设备</string>
     <string name="str_open">打开蓝牙</string>
     <string name="str_close">关闭蓝牙</string>

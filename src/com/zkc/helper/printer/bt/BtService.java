@@ -11,13 +11,11 @@ import android.os.Handler;
 import android.os.Message;
 
 import com.zkc.helper.printer.BlueToothService;
+import com.zkc.helper.printer.BlueToothService.OnReceiveDataHandleEvent;
 import com.zkc.helper.printer.Device;
 import com.zkc.helper.printer.PrintService;
 import com.zkc.helper.printer.PrinterClass;
-import com.zkc.helper.printer.BlueToothService.OnReceiveDataHandleEvent;
-import com.zkc.pinter.activity.MainActivity;
 import com.zkc.pinter.activity.PrintActivity;
-import com.zkc.pinter.activity.PrintSettingActivity;
 
 public class BtService extends PrintService implements PrinterClass {
 

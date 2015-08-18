@@ -1,12 +1,9 @@
 package com.zkc.helper.printer;
 
 import java.util.List;
-import java.util.Set;
 
-import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.widget.ArrayAdapter;
 
 public interface PrinterClass {
 	

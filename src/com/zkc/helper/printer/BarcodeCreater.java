@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
@@ -15,6 +16,7 @@ import android.view.Gravity;
 import android.view.View.MeasureSpec;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -26,6 +28,7 @@ public abstract class BarcodeCreater {
 	/**
 	 * 图片两端所保留的空白的宽度
 	 */
+	@SuppressWarnings("unused")
 	private static int marginW = 20;
 	/**
 	 * 条形码的编码类型

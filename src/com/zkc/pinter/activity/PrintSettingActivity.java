@@ -1,11 +1,11 @@
 package com.zkc.pinter.activity;
 
-
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.lyon_yan.zkc.printer.SelectPrinter;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -30,10 +30,12 @@ import com.zkc.printer.R;
 //zkc.bluetooth.api
 
 public class PrintSettingActivity extends ListActivity {
+	@SuppressWarnings("unused")
 	private String TAG = "BtSetting";
+	@SuppressWarnings("unused")
 	private ArrayAdapter<String> mPairedDevicesArrayAdapter = null;
 	public static ArrayAdapter<String> mNewDevicesArrayAdapter = null;
-	public static List<Device> deviceList=new ArrayList<Device>();
+	public static List<Device> deviceList = new ArrayList<Device>();
 	private Button bt_scan;
 	public Handler mhandler;
 	private LinearLayout layoutscan;
@@ -47,29 +49,29 @@ public class PrintSettingActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_printsetting);
 		// 允许主线程连接网络
-		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+		StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+				.permitAll().build();
 		StrictMode.setThreadPolicy(policy);
-				
-		_context=this;
+
+		_context = this;
 		mPairedDevicesArrayAdapter = new ArrayAdapter<String>(this,
 				R.drawable.device_name);
-		
-		InitListView();		
-		
+
+		InitListView();
+
 		layoutscan = (LinearLayout) findViewById(R.id.layoutscan);
 		layoutscan.setVisibility(View.GONE);
 
 		mNewDevicesArrayAdapter = new ArrayAdapter<String>(this,
 				R.drawable.device_name);
-		deviceList=new ArrayList<Device>();
+		deviceList = new ArrayList<Device>();
 		bt_scan = (Button) findViewById(R.id.bt_scan);
 		bt_scan.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				if(deviceList!=null)
-				{
+				if (deviceList != null) {
 					deviceList.clear();
 				}
 				if (!PrintActivity.pl.IsOpen()) {
@@ -77,7 +79,7 @@ public class PrintSettingActivity extends ListActivity {
 				}
 				layoutscan.setVisibility(View.VISIBLE);
 				mNewDevicesArrayAdapter.clear();
-				PrintActivity.pl.scan();				
+				PrintActivity.pl.scan();
 				deviceList = PrintActivity.pl.getDeviceList();
 				InitListView();
 			}
@@ -94,6 +96,7 @@ public class PrintSettingActivity extends ListActivity {
 						e.printStackTrace();
 					}
 					tv_status.post(new Runnable() {
+						@SuppressWarnings("unused")
 						@Override
 						public void run() {
 							// TODO Auto-generated method stub
@@ -102,27 +105,23 @@ public class PrintSettingActivity extends ListActivity {
 									tv_status.setText(PrintSettingActivity.this
 											.getResources().getString(
 													R.string.str_connected));
-									MainActivity.checkState=true;
-									tvFlag=false;
+									MainActivity.checkState = true;
+									tvFlag = false;
 									PrintSettingActivity.this.finish();
-									
+
 								} else if (PrintActivity.pl.getState() == PrinterClass.STATE_CONNECTING) {
 									tv_status.setText(PrintSettingActivity.this
 											.getResources().getString(
 													R.string.str_connecting));
-								} 
-								else if(PrintActivity.pl.getState()==PrinterClass.STATE_SCAN_STOP)
-								{
-									PrintActivity.pl.setState(PrinterClass.STATE_NONE);
+								} else if (PrintActivity.pl.getState() == PrinterClass.STATE_SCAN_STOP) {
+									PrintActivity.pl
+											.setState(PrinterClass.STATE_NONE);
 									layoutscan.setVisibility(View.GONE);
 									InitListView();
-								}
-								else if(PrintActivity.pl.getState()==PrinterClass.STATE_SCANING)
-								{
+								} else if (PrintActivity.pl.getState() == PrinterClass.STATE_SCANING) {
 									InitListView();
-								}
-								else {
-									int ss=PrintActivity.pl.getState();
+								} else {
+									int ss = PrintActivity.pl.getState();
 									tv_status.setText(PrintSettingActivity.this
 											.getResources().getString(
 													R.string.str_disconnected));
@@ -134,47 +133,50 @@ public class PrintSettingActivity extends ListActivity {
 			}
 		};
 		tv_update.start();
-		
+
 	}
-	
-	private void InitListView()
-	{
-		SimpleAdapter simpleAdapter=new SimpleAdapter(this,getData("simple-list-item-2"),android.R.layout.simple_list_item_2,new String[]{"title", "description"},new int[]{android.R.id.text1, android.R.id.text2});
+
+	private void InitListView() {
+		SimpleAdapter simpleAdapter = new SimpleAdapter(this,
+				getData("simple-list-item-2"),
+				android.R.layout.simple_list_item_2, new String[] { "title",
+						"description" }, new int[] { android.R.id.text1,
+						android.R.id.text2 });
 		setListAdapter(simpleAdapter);
 	}
-	
+
 	/**
-     * 当List的项被选中时触发
-     */
-    protected void onListItemClick(ListView listView, View v, int position, long id) {  
-    	Map map = (Map)listView.getItemAtPosition(position);
-    	String cmd=map.get("description").toString();
+	 * 当List的项被选中时触发
+	 */
+	@SuppressWarnings("rawtypes")
+	protected void onListItemClick(ListView listView, View v, int position,
+			long id) {
+		Map map = (Map) listView.getItemAtPosition(position);
+		String cmd = map.get("description").toString();
 		PrintActivity.pl.disconnect();
 		PrintActivity.pl.connect(cmd);
-    }
-    
-	
-	/**
-     * 构造SimpleAdapter的第二个参数，类型为List<Map<?,?>>
-     * @param title
-     * @return
-     */
-    private List<Map<String, String>> getData(String title) {
-    	List<Map<String, String>> listData = new ArrayList<Map<String, String>>();
-    	if(deviceList!=null)
-    	{
-	    	for(int i=0;i<deviceList.size();i++)
-	    	{
-	    		Map<String, String> map = new HashMap<String, String>();
-	    		map.put("title", deviceList.get(i).deviceName);
-	    		map.put("description", deviceList.get(i).deviceAddress);
-	    		listData.add(map);
-	    	}
-    	}
-    	return listData;
-    }
+		SelectPrinter.saveSelectedPrinter(getApplicationContext(), cmd);
+	}
 
-	
+	/**
+	 * 构造SimpleAdapter的第二个参数，类型为List<Map<?,?>>
+	 * 
+	 * @param title
+	 * @return
+	 */
+	private List<Map<String, String>> getData(String title) {
+		List<Map<String, String>> listData = new ArrayList<Map<String, String>>();
+		if (deviceList != null) {
+			for (int i = 0; i < deviceList.size(); i++) {
+				Map<String, String> map = new HashMap<String, String>();
+				map.put("title", deviceList.get(i).deviceName);
+				map.put("description", deviceList.get(i).deviceAddress);
+				listData.add(map);
+			}
+		}
+		return listData;
+	}
+
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
@@ -187,28 +189,30 @@ public class PrintSettingActivity extends ListActivity {
 		// TODO Auto-generated method stub
 		super.onPause();
 	}
-	
-    @Override
-    public void onBackPressed() {
-	new AlertDialog.Builder(this).setTitle(getResources().getString(R.string.str_exit))
-		.setIcon(android.R.drawable.ic_dialog_info)
-		.setPositiveButton("YES", new DialogInterface.OnClickListener() {
- 
-		    @Override
-		    public void onClick(DialogInterface dialog, int which) {
-			// 点击“确认”后的操作
-				MainActivity.checkState=false;
-				finish();
-		    }
-		})
-		.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-		    @Override
-		    public void onClick(DialogInterface dialog, int which) {
-			// 点击“返回”后的操作,这里不设置没有任何操作
-		    }
-		}).show();
-	// super.onBackPressed();
-    }
 
+	@Override
+	public void onBackPressed() {
+		new AlertDialog.Builder(this)
+				.setTitle(getResources().getString(R.string.str_exit))
+				.setIcon(android.R.drawable.ic_dialog_info)
+				.setPositiveButton("YES",
+						new DialogInterface.OnClickListener() {
+
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								// 点击“确认”后的操作
+								MainActivity.checkState = false;
+								finish();
+							}
+						})
+				.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// 点击“返回”后的操作,这里不设置没有任何操作
+					}
+				}).show();
+		// super.onBackPressed();
+	}
 
 }

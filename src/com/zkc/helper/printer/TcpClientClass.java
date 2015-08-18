@@ -93,7 +93,8 @@ public class TcpClientClass {
 	    public TCPServerThread() 
 	    {  	
 	    }
-	    public void run() 
+	    @SuppressWarnings("unused")
+		public void run() 
 	    {  
 	    	//tvRecv.setText("start");
 	            byte[] buffer = new byte[1024];  
@@ -130,6 +131,7 @@ public class TcpClientClass {
 	       // tvRecv.setText("end");
 	} 
 	
+	@SuppressWarnings({ "unused", "deprecation" })
 	public String getGatewayIPAddress(Context ctx) {
 		WifiManager wifi_service = (WifiManager) ctx
 				.getSystemService(Context.WIFI_SERVICE);

@@ -27,7 +27,8 @@ public class PrintCmdActivity extends ListActivity {
 	/**
      * 当List的项被选中时触发
      */
-    protected void onListItemClick(ListView listView, View v, int position, long id) {
+    @SuppressWarnings("rawtypes")
+	protected void onListItemClick(ListView listView, View v, int position, long id) {
         /*Map map = (Map)listView.getItemAtPosition(position);
         Toast toast = Toast.makeText(this, map.get("title")+" is selected.", Toast.LENGTH_LONG);
         toast.show();*/

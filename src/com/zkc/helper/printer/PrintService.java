@@ -2,18 +2,12 @@ package com.zkc.helper.printer;
 
 import java.io.UnsupportedEncodingException;
 
-
-
-
-import android.app.Activity;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Bitmap.Config;
-
-import com.zkc.helper.printer.PrinterLib;
 
 /**
  * Print Service for image,GBK text,Unicode text
@@ -83,6 +77,7 @@ public class PrintService{
 	 * @param h
 	 * @return
 	 */
+	@SuppressWarnings("unused")
 	private static Bitmap resizeImage(Bitmap bitmap, int w, int h) {
 		Bitmap BitmapOrg = bitmap;
 		int width = BitmapOrg.getWidth();
@@ -107,6 +102,7 @@ public class PrintService{
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	private static byte[] string2Unicode(String s) {   
 	    try {   
 	      StringBuffer out = new StringBuffer("");   

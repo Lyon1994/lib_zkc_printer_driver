@@ -1,11 +1,8 @@
 package com.zkc.helper.printer;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.util.Set;
 import java.util.UUID;
 
@@ -17,7 +14,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Bitmap;
 import android.os.Handler;
 import android.util.Log;
 
@@ -142,6 +138,7 @@ public class BlueToothService {
 			}
 		}
 
+		@SuppressWarnings("unused")
 		private void OnFinished() {
 			// TODO Auto-generated method stub
 
@@ -487,6 +484,7 @@ public class BlueToothService {
 		private final BluetoothSocket mmSocket;
 		private final InputStream mmInStream;
 		private final OutputStream mmOutStream;
+		@SuppressWarnings("unused")
 		private boolean isCancle = false;
 
 		public ConnectedThread(BluetoothSocket socket) {
