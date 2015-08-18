@@ -5,17 +5,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.btpdemo76.R;
-
-import android.app.Activity;
 import android.app.ListActivity;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
+
+import com.zkc.printer.R;
 
 public class PrintCmdActivity extends ListActivity {
 	@Override

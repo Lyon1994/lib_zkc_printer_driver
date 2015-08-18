@@ -2,18 +2,9 @@ package com.zkc.pinter.activity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
-import com.example.btpdemo76.R;
-import com.zkc.helper.printer.BlueToothService;
-import com.zkc.helper.printer.Device;
-import com.zkc.helper.printer.PrinterClass;
-import com.zkc.helper.printer.PrinterClassFactory;
-
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,6 +16,11 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.zkc.helper.printer.Device;
+import com.zkc.helper.printer.PrinterClass;
+import com.zkc.helper.printer.PrinterClassFactory;
+import com.zkc.printer.R;
 
 public class MainActivity extends ListActivity {
 	protected static final String TAG = "MainActivity";

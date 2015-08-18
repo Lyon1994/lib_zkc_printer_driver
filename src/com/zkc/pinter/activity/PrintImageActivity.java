@@ -2,24 +2,19 @@ package com.zkc.pinter.activity;
 
 import java.io.FileNotFoundException;
 
-import com.example.btpdemo76.R;
-
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Matrix;
-import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.zkc.printer.R;
 
 public class PrintImageActivity extends Activity {
 	

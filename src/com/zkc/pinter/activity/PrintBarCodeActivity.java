@@ -1,9 +1,5 @@
 package com.zkc.pinter.activity;
 
-import com.example.btpdemo76.R;
-import com.zkc.helper.printer.BarcodeCreater;
-import com.zkc.helper.printer.PrinterClass;
-
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -14,6 +10,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.zkc.helper.printer.BarcodeCreater;
+import com.zkc.helper.printer.PrinterClass;
+import com.zkc.printer.R;
 
 public class PrintBarCodeActivity extends Activity {
 	private Bitmap btMap = null;
