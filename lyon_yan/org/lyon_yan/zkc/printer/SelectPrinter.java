@@ -38,7 +38,7 @@ public class SelectPrinter {
 		}
 	}
 
-	private void initMainActivity(final Activity activity) {
+	public static void initMainActivity(final Activity activity) {
 		PrintActivity.pl = PrinterClassFactory.create(0, activity,
 				new Handler() {
 					public void handleMessage(Message msg) {
@@ -123,7 +123,7 @@ public class SelectPrinter {
 		}
 	}
 
-	private boolean checkData(List<Device> list, Device d) {
+	private static boolean checkData(List<Device> list, Device d) {
 		for (Device device : list) {
 			if (device.deviceAddress.equals(d.deviceAddress)) {
 				return true;
