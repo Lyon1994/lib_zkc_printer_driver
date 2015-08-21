@@ -157,6 +157,10 @@ public class SelectPrinter {
 		}
 	}
 
+	public static void startSettingPrintActivity(Activity activity) {
+		activity.startActivity(new Intent(activity, PrintSettingActivity.class));
+	}
+
 	public static String getSelectedPrinter(Context c) {
 		DataRecordByAndroid dataRecordByAndroid = new DataRecordByAndroid(c);
 		String default_value = "";

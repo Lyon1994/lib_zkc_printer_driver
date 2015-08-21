@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+//import android.widget.Toast;
 
 import com.zkc.helper.printer.BarcodeCreater;
 import com.zkc.helper.printer.PrinterClass;
@@ -36,19 +36,19 @@ public class PrintBarCodeActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				if (PrintActivity.pl.getState() != PrinterClass.STATE_CONNECTED) {
-					Toast.makeText(
-							PrintBarCodeActivity.this,
-							PrintBarCodeActivity.this.getResources().getString(
-									R.string.str_unconnected), 2000).show();
+//					Toast.makeText(
+//							PrintBarCodeActivity.this,
+//							PrintBarCodeActivity.this.getResources().getString(
+//									R.string.str_unconnected), 2000).show();
 					return;
 				}
 				String message = et_input.getText().toString();
 
 				if (message.getBytes().length > message.length()) {
-					Toast.makeText(
-							PrintBarCodeActivity.this,
-							PrintBarCodeActivity.this.getResources().getString(
-									R.string.str_cannotcreatebar), 2000).show();
+//					Toast.makeText(
+//							PrintBarCodeActivity.this,
+//							PrintBarCodeActivity.this.getResources().getString(
+//									R.string.str_cannotcreatebar), 2000).show();
 					return;
 				}
 				if (message.length() > 0) {

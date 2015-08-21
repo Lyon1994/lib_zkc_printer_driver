@@ -15,7 +15,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
+//import android.widget.Toast;
 
 import com.zkc.helper.printer.Device;
 import com.zkc.helper.printer.PrinterClass;
@@ -70,8 +70,8 @@ public class MainActivity extends ListActivity {
 					 byte[] readBuf = (byte[]) msg.obj;
 		                // construct a string from the valid bytes in the buffer
 		                String readMessage = new String(readBuf, 0, msg.arg1);
-		                Toast.makeText(getApplicationContext(),readMessage,
-	                               Toast.LENGTH_SHORT).show();
+//		                Toast.makeText(getApplicationContext(),readMessage,
+//	                               Toast.LENGTH_SHORT).show();
 					break;
 				case MESSAGE_WRITE:// 缓冲区未�?
 					// sendFlag = true;

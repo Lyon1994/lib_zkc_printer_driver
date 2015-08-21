@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
+//import android.widget.Toast;
 
 import com.zkc.printer.R;
 
@@ -39,8 +39,8 @@ public class PrintCmdActivity extends ListActivity {
     	
     	PrintActivity.pl.printText("This text is a print test\r\n");
     	
-    	Toast toast = Toast.makeText(this, "发送成功", Toast.LENGTH_SHORT);
-        toast.show();
+//    	Toast toast = Toast.makeText(this, "发送成功", Toast.LENGTH_SHORT);
+//        toast.show();
     }
     
     /**
