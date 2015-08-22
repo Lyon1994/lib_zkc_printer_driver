@@ -11,7 +11,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.os.StrictMode;
-import android.widget.Toast;
+//import android.widget.Toast;
 
 import com.zkc.helper.printer.Device;
 import com.zkc.helper.printer.PrinterClass;
@@ -62,13 +62,13 @@ public class SelectPrinter {
 							}
 							break;
 						case MESSAGE_READ:
-							byte[] readBuf = (byte[]) msg.obj;
+//							byte[] readBuf = (byte[]) msg.obj;
 							// construct a string from the valid bytes in the
 							// buffer
-							String readMessage = new String(readBuf, 0,
-									msg.arg1);
-							Toast.makeText(activity, readMessage,
-									Toast.LENGTH_SHORT).show();
+//							String readMessage = new String(readBuf, 0,
+//									msg.arg1);
+//							Toast.makeText(activity, readMessage,
+//									Toast.LENGTH_SHORT).show();
 							break;
 						case MESSAGE_WRITE:// 缓冲区未�?
 							// sendFlag = true;
